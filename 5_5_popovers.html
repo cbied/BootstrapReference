@@ -88,19 +88,20 @@
     <!--##################START HERE####################-->
 
     <!-- POPOVER -->
-    <button class="btn btn-danger">
+    <button class="btn btn-danger" data-toggle="popover" data-placement="top" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, architecto.">
       Toggle popover
     </button>
 
-    <button class="btn btn-primary">
+
+    <button class="btn btn-primary" data-toggle="popover" data-placement="right" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, architecto.">
       Toggle popover
     </button>
 
-    <button class="btn btn-warning">
+    <button class="btn btn-warning" data-toggle="popover" data-placement="bottom" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, architecto.">
       Toggle popover
     </button>
 
-    <button class="btn btn-info">
+    <button class="btn btn-info" data-toggle="popover" data-placement="left" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, architecto.">
       Toggle popover
     </button>
 
@@ -108,16 +109,16 @@
     <br>
 
     <!-- DISMISSIBLE POPOVER -->
-    <button class="btn btn-primary">
+    <button id="popover1" class="btn btn-primary" data-toggle="popover" data-placement="left" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, architecto." data-trigger="focus">
       Toggle popover
     </button>
 
     <hr>
 
     <!-- CONTROL WITH JS -->
-    <button class="btn btn-secondary">Show Popover</button>
-    <button class="btn btn-secondary">Hide Popover</button>
-    <button class="btn btn-secondary">Toggle Popover</button>
+    <button class="btn btn-secondary" onclick="showPopover()">Show Popover</button>
+    <button class="btn btn-secondary" onclick="hidePopover()">Hide Popover</button>
+    <button class="btn btn-secondary" onclick="togglePopover()">Toggle Popover</button>
   </div>
 
   <div style="margin-top:500px;"></div>
@@ -129,7 +130,38 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
   <script>
+    // Init Popover
+    $('[data-toggle="popover"]').popover();
 
+    // onlclick funtions
+    function showPopover() {
+      $('#popover1').popover('show');
+    }
+
+    function hidePopover() {
+      $('#popover1').popover('hide');
+    }
+
+    function togglePopover() {
+      $('#popover1').popover('toggle');
+    }
+
+    // Popover Events
+    $('#popover1').on('show.bs.popover', function() {
+      console.log('Popover show')
+    });
+
+    $('#popover1').on('shown.bs.popover', function() {
+      console.log('Popover shown')
+    });
+
+    $('#popover1').on('hide.bs.popover', function() {
+      console.log('Popover hide')
+    });
+
+    $('#popover1').on('hidden.bs.popover', function() {
+      console.log('Popover hidden')
+    });
   </script>
 </body>
 
